@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "567354312384",
+    "project_id": "modgraphics-eb859",
+    "storage_bucket": "modgraphics-eb859.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567354312384:android:3b90166bd40a9ae9808f25",
+        "android_client_info": {
+          "package_name": "com.example.fyp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567354312384-k8tcr023bssree1piiucdcbrngjuo560.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzD_CultGrN-Go1v35U8g25sKpuyTScW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567354312384-k8tcr023bssree1piiucdcbrngjuo560.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
