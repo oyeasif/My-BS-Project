@@ -59,6 +59,18 @@ class customtextfieldemail extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
           border: InputBorder.none,
           prefixIcon: Icon(
             data,

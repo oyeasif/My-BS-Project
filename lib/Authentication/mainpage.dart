@@ -49,7 +49,6 @@ class _mainpageState extends State<mainpage> {
 
   buildDrawer(String name, String email, String img) {
     return Drawer(
-      width: 200,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -148,11 +147,12 @@ class _mainpageState extends State<mainpage> {
               data["UserAvatarUrl"].toString() ?? 'null',
             ),
             appBar: AppBar(
+              backgroundColor: Colors.deepPurple,
               title: !isSearching
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.card_giftcard),
+                        Icon(Icons.card_giftcard, color: Colors.white,),
                         Text(
                           " Mod Graphics",
                           style: TextStyle(
@@ -181,6 +181,7 @@ class _mainpageState extends State<mainpage> {
                         iconSize: 30,
                         icon: const Icon(
                           Icons.cancel,
+                          color: Colors.white,
                         ),
                         onPressed: () {
                           setState(() {
@@ -192,6 +193,7 @@ class _mainpageState extends State<mainpage> {
                         iconSize: 30,
                         icon: const Icon(
                           Icons.search,
+                          color: Colors.white,
                         ),
                         onPressed: () {
                           setState(() {
@@ -208,7 +210,7 @@ class _mainpageState extends State<mainpage> {
                             builder: (context) => cartscreen(),
                           ));
                     },
-                    icon: Icon(Icons.shopping_bag_outlined),
+                    icon: Icon(Icons.shopping_bag_outlined, color: Colors.white,),
                   ),
                   Badge(
                     child: Text(

@@ -45,35 +45,42 @@ class _forgetpasswordState extends State<forgetpassword> {
                           height: 20,
                         ),
 
-                        ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                            // minimumSize: Size.fromHeight(50),
-                              fixedSize: Size(200, 50),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple,
+                            borderRadius: BorderRadius.circular(5),
                           ),
-                          icon: Icon(Icons.key, size: 32),
-                          label: Text(
-                            'Reset Password',
-                            style: TextStyle(fontSize: 18),
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              // minimumSize: Size.fromHeight(50),
+                              elevation: 0,
+                            ),
+                            icon: Icon(Icons.key, size: 32, color: Colors.white,),
+                            label: Text(
+                              'Reset Password',
+                              style: TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                            onPressed: (){
+                              auth.sendPasswordResetEmail(email: emailController.text.toString()).then((value){
+                                Fluttertoast.showToast(
+                                    msg: 'We have sent you email to reset your password, please check email',
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Theme.of(context).colorScheme.secondary,
+                                    textColor: Theme.of(context).colorScheme.primary
+                                );
+                              }).onError((error, stackTrace){
+                                Fluttertoast.showToast(
+                                    msg: error.toString(),
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Theme.of(context).colorScheme.secondary,
+                                    textColor: Theme.of(context).colorScheme.primary
+                                );
+                              });
+                            },
                           ),
-                          onPressed: (){
-                            auth.sendPasswordResetEmail(email: emailController.text.toString()).then((value){
-                              Fluttertoast.showToast(
-                                  msg: 'We have sent you email to reset your password, please check email',
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  timeInSecForIosWeb: 1,
-                                  backgroundColor: Theme.of(context).colorScheme.secondary,
-                                  textColor: Theme.of(context).colorScheme.primary
-                              );
-                            }).onError((error, stackTrace){
-                              Fluttertoast.showToast(
-                                  msg: error.toString(),
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  timeInSecForIosWeb: 1,
-                                  backgroundColor: Theme.of(context).colorScheme.secondary,
-                                  textColor: Theme.of(context).colorScheme.primary
-                              );
-                            });
-                          },
                         ),
                       ],
                     ),

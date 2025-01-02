@@ -48,7 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     radius: MediaQuery.of(context).size.width * 0.20,
                     backgroundColor: Theme.of(context).colorScheme.secondary,
                     backgroundImage: imageXFile==null ? null : FileImage(File(imageXFile!.path)),
-                    child: widget.data["UserAvatarUrl"]!= null?
+                    child: widget.data["UserAvatarUrl"]!= null ?
                       CircleAvatar(
                         radius: MediaQuery.of(context).size.width * 0.20,
                         backgroundImage: NetworkImage( widget.data["UserAvatarUrl"],),

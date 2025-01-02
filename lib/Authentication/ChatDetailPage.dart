@@ -27,6 +27,7 @@ var txt = TextEditingController();
     var messages = Provider.of<Messages>(context,listen: false).messages;
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.deepPurple,
           elevation: 0,
           automaticallyImplyLeading: false,
           flexibleSpace: SafeArea(
@@ -99,7 +100,8 @@ var txt = TextEditingController();
                                     const SizedBox(height: 5,),
                                     Text(
                                       DateFormat("dd/MM/yy hh:mm a").format(DateTime.parse(snapshot.data.docs[index]["date"])).toString() ,
-                                      style:const TextStyle(fontSize: 13,color: Colors.blueGrey),),
+                                      style:const TextStyle(fontSize: 13,color: Colors.blueGrey),
+                                    ),
                                   ],
                                 ),
                               ),

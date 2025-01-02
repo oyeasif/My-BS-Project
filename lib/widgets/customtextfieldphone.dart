@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'dart:io';
 
 import 'package:adminseller/Authentication/login.dart';
@@ -76,7 +75,18 @@ class customtextfieldphone extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
           prefixIcon: Icon(
             data,
             color: Colors.cyan,

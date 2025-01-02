@@ -243,7 +243,7 @@ class _registerState extends State<register> {
                 },
                 child: CircleAvatar(
                   radius: MediaQuery.of(context).size.width * 0.20,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.grey.withOpacity(0.4),
                   backgroundImage: imageXFile==null ? null : FileImage(File(imageXFile!.path)),
                   child: imageXFile == null ? Icon(
                     Icons.add_photo_alternate,
@@ -300,18 +300,28 @@ class _registerState extends State<register> {
             const SizedBox(height: 5,),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  fixedSize: Size(500, 50),
-                  // backgroundColor: Color.fromRGBO(65, 133, 193,1),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                child: const Text(
-                  "Sign Up",
-                  style: TextStyle(fontSize: 18),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: Size(500, 50),
+                    elevation: 0,
+                    backgroundColor: Colors.deepPurple,
+                    // backgroundColor: Color.fromRGBO(65, 133, 193,1),
+                  ),
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                  onPressed: (){
+                    if(_formkey.currentState!.validate()){
+                      formValidation();
+                    }
+                  },
                 ),
-                onPressed: (){
-                  formValidation();
-                },
               ),
             ),
             SizedBox(height: 20,)

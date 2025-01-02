@@ -3,7 +3,6 @@ import 'package:adminseller/global/global.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
@@ -104,30 +103,6 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                           isExpiryDateVisible: true,
                           cardHolderName: cardHolderName,
                           expiryDate: expiryDate,
-                          themeColor: Colors.blue,
-                          cardNumberDecoration: InputDecoration(
-                            labelText: 'Number',
-                            hintText: 'XXXX XXXX XXXX XXXX',
-                            focusedBorder: border,
-                            enabledBorder: border,
-                          ),
-                          expiryDateDecoration: InputDecoration(
-                            focusedBorder: border,
-                            enabledBorder: border,
-                            labelText: 'Expired Date',
-                            hintText: 'XX/XX',
-                          ),
-                          cvvCodeDecoration: InputDecoration(
-                            focusedBorder: border,
-                            enabledBorder: border,
-                            labelText: 'CVV',
-                            hintText: 'XXX',
-                          ),
-                          cardHolderDecoration: InputDecoration(
-                            focusedBorder: border,
-                            enabledBorder: border,
-                            labelText: 'Card Holder',
-                          ),
                           onCreditCardModelChange: onCreditCardModelChange,
                         ),
                         const SizedBox(

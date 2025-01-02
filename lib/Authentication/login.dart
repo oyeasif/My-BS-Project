@@ -151,7 +151,7 @@ class _loginState extends State<login> {
       if (result.status == LoginStatus.success) {
         // Get the access token
         final AccessToken accessToken = result.accessToken!;
-        final String token = accessToken.token;
+        final String token = accessToken.tokenString;
         // Use the access token to sign in or fetch user information
         final userData = await FacebookAuth.instance.getUserData();
         // Do something with the signed-in user information
@@ -233,20 +233,30 @@ class _loginState extends State<login> {
            ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    // minimumSize: Size.fromHeight(50),
-                      fixedSize: Size(500, 50),
-                      // backgroundColor: Color.fromRGBO(65, 133, 193,1),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(5),
                   ),
-                  icon: Icon(Icons.lock_open, size: 32),
-                  label: Text(
-                    'Sign in',
-                    style: TextStyle(fontSize: 18),
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size.fromHeight(50),
+                      backgroundColor: Colors.deepPurple,
+                        elevation: 0,
+                        maximumSize: Size.infinite
+                        // backgroundColor: Color.fromRGBO(65, 133, 193,1),
+                    ),
+                    icon: Icon(Icons.lock_open, size: 32, color: Colors.white,),
+                    label: Text(
+                      'Sign in',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                    onPressed: () {
+                      if(_formkey.currentState!.validate()){
+                        formValidation();
+                      }
+                    },
                   ),
-                  onPressed: () {
-                    formValidation();
-                  },
                 ),
               ),
 
@@ -274,36 +284,43 @@ class _loginState extends State<login> {
               // ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    // minimumSize: Size.fromHeight(50),
-                      fixedSize: Size(150, 50)
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(5),
                   ),
-                  icon: Icon(Icons.mail, size: 32),
-                  label: Text(
-                    'Google',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(fontSize: 18),
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      elevation: 0,
+                      // minimumSize: Size.fromHeight(50),
+                        fixedSize: Size(150, 50),
+                    ),
+                    icon: Icon(Icons.mail, size: 32, color: Colors.white,),
+                    label: Text(
+                      'Google',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                    onPressed: () async {
+                      User? currentUser;
+                      final UserCredential? userCredential = await signInWithGoogle();
+                      // Handle the signed-in user here
+                      if (userCredential != null) {
+                      // User is signed in
+                        currentUser = userCredential.user!;
+                        Global.user = currentUser;
+                        Global.currentuserid = currentUser!.uid;
+                        print(Global.currentuserid);
+                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (c)=>  mainpage(userid: currentUser!.uid)));
+                      print('Signed in as ${userCredential.user?.displayName}');
+                      } else {
+                      // Sign in failed
+                      print('Sign in with Google failed');
+                      }
+                      },
                   ),
-                  onPressed: () async {
-                    User? currentUser;
-                    final UserCredential? userCredential = await signInWithGoogle();
-                    // Handle the signed-in user here
-                    if (userCredential != null) {
-                    // User is signed in
-                      currentUser = userCredential.user!;
-                      Global.user = currentUser;
-                      Global.currentuserid = currentUser!.uid;
-                      print(Global.currentuserid);
-                      Navigator.pop(context);
-                      Navigator.push(context, MaterialPageRoute(builder: (c)=>  mainpage(userid: currentUser!.uid)));
-                    print('Signed in as ${userCredential.user?.displayName}');
-                    } else {
-                    // Sign in failed
-                    print('Sign in with Google failed');
-                    }
-                    },
                 ),
               ),
             ],

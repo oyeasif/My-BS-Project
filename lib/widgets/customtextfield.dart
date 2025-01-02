@@ -26,12 +26,29 @@ class customtextfield extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       margin: const EdgeInsets.all(10),
       child: TextFormField(
+        validator: (value){
+          if(value!.isEmpty){
+            return 'Fill the field';
+          }
+        },
         enabled: enabled,
         controller: controller,
         obscureText: isObsecret!,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
           ),
           border: InputBorder.none,
           prefixIcon: Icon(

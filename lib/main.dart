@@ -1,7 +1,6 @@
 import 'package:adminseller/Model/ChatMessage.dart';
 import 'package:adminseller/Model/cartitems.dart';
 import 'package:adminseller/Model/categories.dart';
-import 'package:adminseller/global/global.dart';
 import 'package:adminseller/splashscreen/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import 'package:flutter_notification_channel/flutter_notification_channel.dart';
 import 'package:flutter_notification_channel/notification_importance.dart';
 import 'package:flutter_notification_channel/notification_visibility.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Model/carditems.dart';
 
@@ -19,7 +17,7 @@ Future<void> main() async
 
   await Firebase.initializeApp();
 
-  await FlutterNotificationChannel.registerNotificationChannel(
+  await FlutterNotificationChannel().registerNotificationChannel(
       description: 'To show notifications of mod graphics app',
       id: 'modg',
       importance: NotificationImportance.IMPORTANCE_HIGH,

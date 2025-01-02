@@ -547,13 +547,14 @@ class _cardbuyingState extends State<cardbuying> {
                           backgroundColor: Color(0xffd6d6d6),
                           child: IconButton(
                             onPressed: (){
-                              if(a>1)
-                              setState(() {
+                              if(a>1) {
+                                setState(() {
                                 a--;
                               });
+                              }
 
                             },
-                            icon: Icon(Icons.remove,),
+                            icon: Icon(Icons.remove, color: Colors.deepPurple,),
                           ),
                         ),
                         Text('   $a    ',
@@ -568,7 +569,7 @@ class _cardbuyingState extends State<cardbuying> {
                                 a++;
                               });
                             },
-                            icon: Icon(Icons.add),
+                            icon: Icon(Icons.add, color: Colors.deepPurple),
                           ),
                         ),
                         SizedBox(
@@ -577,7 +578,11 @@ class _cardbuyingState extends State<cardbuying> {
                         CircleAvatar(
                           radius: 25,
                           backgroundColor: Color(0xffd6d6d6),
-                          child: TextButton(onPressed: (){
+                          child: TextButton(
+                              style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.zero
+                              ),
+                              onPressed: (){
                             setState(() {
                               a=a+10;
                             });
@@ -598,7 +603,7 @@ class _cardbuyingState extends State<cardbuying> {
                         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                       style: ElevatedButton.styleFrom(
-                          primary: Theme.of(context).colorScheme.primary,
+                          backgroundColor: Theme.of(context).colorScheme.primary,
                           padding: EdgeInsets.symmetric(horizontal: 30,vertical: 15)
 
                       ),

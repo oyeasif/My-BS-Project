@@ -57,7 +57,7 @@ class _JazzCashScreenState extends State<JazzCashScreen> {
                     },
                     child: const Text(
                       'Submit',
-                      style: TextStyle(fontSize: 24),
+                      style: TextStyle(fontSize: 24, color: Colors.white),
                     ),
                   ),
                   const SizedBox(height: 10,)

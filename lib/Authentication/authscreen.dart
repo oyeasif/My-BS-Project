@@ -17,6 +17,7 @@ class _authscreenState extends State<authscreen> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.deepPurple,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               // gradient: LinearGradient(
@@ -29,6 +30,7 @@ class _authscreenState extends State<authscreen> {
               //   stops: [0.0,1.0],
               //   tileMode: TileMode.clamp,
               // )
+
             ),
           ),
           automaticallyImplyLeading: false,
@@ -41,6 +43,8 @@ class _authscreenState extends State<authscreen> {
           ),
         centerTitle: true,
           bottom: const TabBar(
+            labelStyle: TextStyle(color: Colors.white),
+            unselectedLabelColor: Colors.white,
             tabs: [
               Tab(
                 icon: Icon(Icons.lock, color: Colors.white,),

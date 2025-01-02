@@ -187,7 +187,7 @@ class _JazzPinScreenState extends State<JazzPinScreen> {
                     },
                     child: const Text(
                       'Pay Now',
-                      style: TextStyle(fontSize: 24),
+                      style: TextStyle(fontSize: 24, color: Colors.white),
                     ),
                   ),
                   const SizedBox(height: 10,)

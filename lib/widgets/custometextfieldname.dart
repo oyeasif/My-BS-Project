@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-
 
 class customtextfieldname extends StatelessWidget {
 
@@ -28,7 +26,12 @@ class customtextfieldname extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(8.0),
       margin: const EdgeInsets.all(10),
-      child: TextField(
+      child: TextFormField(
+        validator: (value){
+          if(value!.isEmpty){
+            return 'Fill the field';
+          }
+        },
         inputFormatters: [
           FilteringTextInputFormatter.allow(RegExp('[A-z ]')), // Only allow digits and specified special characters
         ],
@@ -41,7 +44,18 @@ class customtextfieldname extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
           prefixIcon: Icon(
             data,
             color: Color.fromRGBO(38, 14, 147, 80),
